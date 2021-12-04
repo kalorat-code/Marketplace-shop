@@ -1,5 +1,6 @@
 import express from "express";
 import connectDB from "./config/db.js";
+import { notFound, errorHandler } from "./middlewares/errors.js";
 import colors from "colors";
 import dotenv from "dotenv";
 import product from "./routes/products.js";
@@ -15,6 +16,9 @@ app.get("/", (req, res) => {
 
 //middlewares
 app.use("/api/product", product);
+//err
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
