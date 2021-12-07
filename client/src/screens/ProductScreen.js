@@ -18,7 +18,7 @@ import Message from "../components/Message";
 //
 const ProductScreen = ({ history, match }) => {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -70,7 +70,7 @@ const ProductScreen = ({ history, match }) => {
                   <Row>
                     <Col>Price:</Col>
                     <Col>
-                      <strong>${product.price}</strong>
+                      <strong>Ksh{product.price}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>
