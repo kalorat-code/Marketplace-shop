@@ -4,11 +4,13 @@ import { notFound, errorHandler } from "./middlewares/errors.js";
 import colors from "colors";
 import dotenv from "dotenv";
 import product from "./routes/products.js";
+import { authUser } from "./controllers/users.js";
 
 dotenv.config();
 //databse connection
 connectDB();
 const app = express();
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("API is running...");
@@ -16,6 +18,8 @@ app.get("/", (req, res) => {
 
 //middlewares
 app.use("/api/product", product);
+app.use("/api/users", authUser);
+
 //err
 app.use(notFound);
 app.use(errorHandler);
