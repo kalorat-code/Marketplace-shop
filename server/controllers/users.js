@@ -1,5 +1,5 @@
-import User from "../models/users.js";
 import asyncHandler from "express-async-handler";
+import User from "../models/users.js";
 
 //@desc Uth token and get token
 //@route POST /api/users/login
@@ -18,7 +18,7 @@ const authUser = asyncHandler(async (req, res) => {
       token: null,
     });
   } else {
-    res.sendStatus(401);
+    res.status(401);
     throw new Error("Invalid email or password");
   }
 });

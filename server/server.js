@@ -1,8 +1,10 @@
 import express from "express";
-import connectDB from "./config/db.js";
-import { notFound, errorHandler } from "./middlewares/errors.js";
+
 import colors from "colors";
 import dotenv from "dotenv";
+import { notFound, errorHandler } from "./middlewares/errors.js";
+import connectDB from "./config/db.js";
+
 import product from "./routes/products.js";
 import { authUser } from "./controllers/users.js";
 
