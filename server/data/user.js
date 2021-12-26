@@ -8,7 +8,7 @@ const users = [
   },
   {
     name: "John Doe",
-    email: "john@cexample.com",
+    email: "john@example.com",
     password: bycrypt.hashSync("mmmmmm", 10),
   },
   {
