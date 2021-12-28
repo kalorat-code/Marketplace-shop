@@ -5,8 +5,8 @@ import dotenv from "dotenv";
 import { notFound, errorHandler } from "./middlewares/errors.js";
 import connectDB from "./config/db.js";
 
-import product from "./routes/products.js";
-import { authUser } from "./controllers/users.js";
+import product from "./routes/productRoutes.js";
+import { authUser } from "./controllers/userController.js";
 
 dotenv.config();
 //databse connection
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 //middlewares
-app.use("/api/product", product);
+app.use("/api/products", product);
 app.use("/api/users", authUser);
 
 //err
@@ -30,5 +30,7 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(
   PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  )
 );
